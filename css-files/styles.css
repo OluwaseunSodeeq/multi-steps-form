@@ -1,0 +1,325 @@
+*,
+::before,
+::after {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Ubuntu";
+  src: url("../assets/fonts/Ubuntu-Bold.ttf");
+  font-weight: bold;
+}
+@font-face {
+  font-family: "Ubuntu";
+  src: url("../assets/fonts/Ubuntu-Medium.ttf");
+  font-weight: medium;
+}
+@font-face {
+  font-family: "Ubuntu";
+  src: url("../assets/fonts/Ubuntu-Regular.ttf");
+  font-weight: regular;
+}
+
+body {
+  width: 100%;
+  height: auto;
+  background-color: rgb(205, 247, 233);
+}
+.project-body {
+  position: relative;
+  background-color: #fff;
+  width: 970px;
+  max-width: 1000px;
+  height: 650px;
+  margin: 120px auto 0px;
+  display: flex;
+  border-radius: 10px;
+  flex-wrap: wrap;
+}
+
+/* =========SIDE START STYLE */
+
+.side-start {
+  position: relative;
+  width: 300px;
+  height: 95%;
+  border-radius: 10px;
+  /* background-color: rgb(100, 100, 250); */
+  color: #fff;
+  margin-top: 1.5%;
+  margin-left: 1.5%;
+}
+.side-start > .background-art-work {
+  width: 100%;
+  /* height: 100%; */
+}
+.background-art-work > svg {
+  width: 100%;
+  height: 100%;
+}
+.side-start > .content-overlay {
+  position: absolute;
+  top: 30px;
+  width: 100%;
+  z-index: 2;
+}
+.side-start > .content-overlay > .each-step {
+  width: 80%;
+  height: 60px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 10px;
+  cursor: pointer;
+  padding: 0px;
+}
+.each-step > .activeBtn {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #fff;
+  text-align: center;
+  padding-top: 6px;
+  margin-left: 40px;
+  border-radius: 1998px;
+  cursor: pointer;
+}
+.each-step > .step-body {
+  margin-left: 30px;
+}
+
+.step-body h5 {
+  font-family: "Ubuntu", Fallback, sans-serif;
+  font-weight: lighter;
+  color: hsl(0, 7%, 81%);
+}
+.step-body h3 {
+  font-family: "Ubuntu", Fallback, sans-serif;
+  font-weight: 600;
+}
+
+/* =========STEP ONE BODY STYLES ===========*/
+.project-body .each-body {
+  /* width: calc(100% - 350px); */
+  width: 650px;
+  padding: 50px 70px 70px;
+}
+.each-body h1 {
+  font-size: 45px;
+  font-family: "Ubuntu", Fallback, sans-serif;
+  color: rgb(5, 5, 78);
+}
+.each-body h5 {
+  color: hsl(0, 7%, 81%);
+  font-size: 17px;
+  font-family: "Ubuntu", Fallback, sans-serif;
+  margin-top: 5px;
+  font-weight: 200;
+}
+.each-body div {
+  width: 100%;
+  height: auto;
+  margin-top: 35px;
+  color: rgb(5, 5, 78);
+}
+
+::placeholder {
+  color: hsl(0, 7%, 81%);
+  font-size: 16px;
+  font-weight: 500;
+  /* padding-left: 20px; */
+}
+.each-body div > label {
+  display: block;
+  font-size: 20px;
+  font-family: "Ubuntu", Fallback, sans-serif;
+  font-weight: bold;
+}
+.each-body div > input {
+  width: 95%;
+  height: 50px;
+  border-radius: 5px;
+  border-color: #9e8585;
+  margin-top: 5px;
+  font-size: 18px;
+  padding-left: 15px;
+  outline: #9e8585;
+}
+.btn-container {
+  width: 100%;
+  margin-top: -60px;
+  display: flex;
+  justify-content: flex-end;
+  margin-left: -110px;
+}
+.btn-container > button {
+  width: 100px;
+  height: 40px;
+  color: #fff;
+  background: rgb(5, 5, 78);
+  /* margin-top: 80px; */
+  border-radius: 10px;
+  font-family: "Ubuntu", Fallback, sans-serif;
+  font-size: 17px;
+}
+.step-one-body {
+  margin-left: 0%;
+}
+/*============= start up styles========= */
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+/* @media (max-width: 768px) { */
+@media (max-width: 850px) {
+  .project-body {
+    width: 100%;
+    height: auto;
+    position: relative;
+    background-color: rgb(205, 247, 233);
+    margin: 0px;
+    padding: 0px;
+    justify-content: center;
+  }
+
+  .side-start {
+    width: 100%;
+    height: 300px;
+    padding: 0px;
+  }
+  .side-start > .background-art-work {
+    width: 100%;
+  }
+  .side-start > .content-overlay {
+    width: 300px;
+    min-width: 200px;
+    display: flex;
+    justify-content: space-between;
+    top: 50px;
+    align-items: center;
+    left: 50%;
+    column-gap: 0px;
+    row-gap: 0px;
+    /* border: 1px solid #000; */
+    /* margin-left: -200px;  */
+    transform: translateX(-50%);
+  }
+  .side-start > .content-overlay > .each-step {
+    width: 60%;
+    height: 60px;
+    padding: 0px;
+    margin: 0px;
+  }
+  .each-step > .activeBtn {
+    width: 50px;
+    height: 50px;
+    padding-top: 12px;
+    font-size: 20px;
+    margin: 20px 0px 0px;
+  }
+  .side-start > .content-overlay > .each-step > .step-body {
+    display: none;
+  }
+  .btn-container {
+    width: 768px;
+    background-color: #fff;
+  }
+
+  .project-body .each-body {
+    position: absolute;
+    top: 210px;
+    width: 90%;
+    background-color: #fff;
+    height: 520px;
+    border-radius: 10px;
+    padding: 50px 0px 0px;
+    margin: 0px;
+
+    /* left: 50%;
+    transform: translateX(-50%); */
+    /* oR */
+    /* left: 50%;
+    margin-left: -45%; */
+  }
+
+  .each-body div,
+  .each-body h1,
+  .each-body h5 {
+    width: 90%;
+    /* border: 1px solid #000; */
+    margin: 0 auto;
+  }
+  .each-body div {
+    margin-top: 20px;
+  }
+  .each-body div > input {
+    width: 100%;
+  }
+  .btn-container {
+    width: 100%;
+    height: 100px;
+    align-items: center;
+    position: absolute;
+    top: 800px;
+    margin: 0px;
+    padding-right: 110px;
+    /* margin-top: 60px; */
+  }
+}
+@media (max-width: 450px) {
+  .project-body {
+    width: 100%;
+  }
+  .side-start > .content-overlay {
+    top: 15px;
+  }
+  .project-body .each-body {
+    top: 115px;
+    width: 350px;
+    margin: 0px;
+    padding-left: 10px;
+
+    /* padding: 0; */
+  }
+  .each-body div,
+  .each-body h1,
+  .each-body h5 {
+    width: 95%;
+    /* border: 1px solid #000; */
+    margin: 0 auto;
+  }
+  .each-body h5 {
+    margin-top: 10px;
+  }
+  .each-body div {
+    margin-top: 35px;
+  }
+
+  .each-body div > input {
+    width: 95%;
+  }
+  .btn-container {
+    width: 100%;
+    top: 650px;
+    margin: 0px;
+    padding-right: 50px;
+    padding-bottom: 20px;
+    /* margin-top: 60px; */
+  }
+}
+@media (max-width: 360px) {
+  .project-body .each-body {
+    width: 300px;
+    height: 570px;
+
+    top: 99px;
+  }
+  .btn-container {
+    top: 700px;
+  }
+}
