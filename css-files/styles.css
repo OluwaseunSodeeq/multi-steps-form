@@ -111,30 +111,26 @@ body {
   align-items: center;
   padding-top: 20px;
   padding-bottom: 30px;
-  border: 1px solid red;
+  /* border: 1px solid red; */
+  position: relative;
+  overflow: hidden;
 }
 .project-body > .whole-container > .whole {
-  max-width: 650px;
+  /* max-width: 650px; */
+  width: calc(100% * 5);
   height: 100%;
   margin: 0 auto;
   position: relative;
-  border: 1px solid blue;
+  /* transition: transform 250ms ease-in; */
+  /* border: 1px solid blue; */
 
-  /* overflow: hidden; */
-
-  /* padding: 50px 70px 20px; */
+  display: flex;
+  gap: 10px;
 }
-/* .project-body > .whole > .each-body { */
 .whole-container > .whole > .each-body {
-  position: absolute;
   width: 100%;
-  height: 650px;
-  padding: 0px;
-  top: 0px;
-  left: 0px;
-  /* top: 50px; */
-  /* padding: 0px 70px; */
-  /* padding: 50px 50px;*/
+  height: 100%;
+  padding: 50px 20px 20px 70px;
   transition: transform 1s;
 }
 .each-body h1 {
@@ -158,7 +154,6 @@ body {
   color: hsl(0, 7%, 81%);
   font-size: 16px;
   font-weight: 500;
-  /* padding-left: 20px; */
 }
 .step-one-body div > label {
   display: block;
@@ -178,7 +173,7 @@ body {
 
 .btn-container {
   width: 100%;
-  padding: 0px 90px;
+  padding: 0px 70px;
   display: flex;
   justify-content: space-between;
 }
@@ -388,4 +383,11 @@ body {
   font-size: 20px;
   margin-top: 20px;
 }
-/* @media (max-width: 768px) { */
+/* ===============js styles ===========*/
+.indicator {
+  color: #fff;
+  background-color: #000;
+}
+.btnOpacity {
+  opacity: 0;
+}
