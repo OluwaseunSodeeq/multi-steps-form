@@ -158,15 +158,19 @@
             <h5>Please provide your name, email, address, and phone number.</h5>
             <div class="name-div">
               <label for="name">Name</label>
-              <input type="text" placeholder="e.g. Stephen King" />
+              <input type="text" placeholder="e.g. Stephen King" required />
             </div>
             <div class="email-div">
               <label for="email">Email Address</label>
-              <input type="email" placeholder="e.g. stephenking@gmail.com" />
+              <input
+                type="email"
+                placeholder="e.g. stephenking@gmail.com"
+                required
+              />
             </div>
             <div class="email-div">
               <label for="phoneNum">Phone Number</label>
-              <input type="text" placeholder="e.g. +1 234 567 890" />
+              <input type="text" placeholder="e.g. +1 234 567 890" required />
             </div>
           </div>
           <!-- </div> -->
@@ -179,7 +183,7 @@
             <h1>Select your plan</h1>
             <h5>You have the option of monthly or yearly billing.</h5>
             <div class="cards">
-              <div class="card">
+              <div class="card selected-plan0">
                 <div class="plan-icon">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -246,7 +250,8 @@
             <div class="plan-switch">
               <p>Monthly</p>
               <div class="switch">
-                <span class="o1">OO</span> <span class="o2">OO</span>
+                <span class="o1 selectedplanBtns" data-val="1">OO</span>
+                <span class="o2" data-val="2">OO</span>
               </div>
               <p>Yearly</p>
             </div>
