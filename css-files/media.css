@@ -1,26 +1,37 @@
 @media (max-width: 850px) {
   .project-body {
     width: 100%;
-    height: auto;
+    height: 100vh;
+    /* height: auto; */
     position: relative;
     background-color: rgb(205, 247, 233);
     margin: 0px;
     padding: 0px;
     justify-content: center;
+    overflow: hidden;
   }
 
   .side-start {
     width: 100%;
     height: 300px;
     padding: 0px;
-    border: 1px solid #000;
+    margin: 0 auto;
+    /* border: 1px solid #000; */
   }
+
   .side-start > .background-art-work {
     width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0px;
   }
-  .side-start > .background-art-work > svg {
+  .side-start > .background-art-work svg {
     width: 100%;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 10px;
   }
+
   .side-start > .content-overlay {
     width: 300px;
     min-width: 200px;
@@ -51,53 +62,61 @@
   .side-start > .content-overlay > .each-step > .step-body {
     display: none;
   }
-  .btn-container {
-    /* width: 768px; */
+
+  .project-body > .whole-container {
+    width: 100%;
+    height: 800px;
+    flex-direction: column;
+    /* height: 90vh; */
+    padding: 0px;
+    z-index: 5;
+    margin-top: -100px;
+  }
+  .project-body > .whole-container > .whole {
+    width: 90%;
+    height: 550px;
     background-color: #fff;
   }
-
-  .project-body .each-body {
-    /* position: absolute; */
-    position: relative;
-    top: 210px;
-    width: 90%;
+  .btn-container {
+    width: 100%;
+    height: 100px;
+    padding-top: 25px;
     background-color: #fff;
-    height: auto;
+    margin-top: 50px;
+  }
+  .whole-container > .whole > .each-body {
+    height: 100%;
+    width: 100%;
+    top: 0px;
     border-radius: 10px;
-    padding: 50px 0px 20px;
-    margin-top: -300px;
+    padding: 40px 0px 20px;
     z-index: 5;
-    /* left: 50%;
-      transform: translateX(-50%); */
-    /* oR */
-    /* left: 50%;
-      margin-left: -45%; */
+    background-color: #fff;
   }
 
   .step-one-body div,
   .each-body h1,
   .each-body h5 {
     width: 90%;
-    /* border: 1px solid #000; */
     margin: 0 auto;
   }
+  .step-one-body {
+    margin-bottom: 30px;
+  }
   .step-one-body div {
-    margin-top: 20px;
+    margin-top: 30px;
+  }
+  .step-one-body div > label {
+    font-size: 24px;
   }
   .step-one-body div > input {
     width: 100%;
+    height: 60px;
   }
-  .btn-container {
-    width: 100%;
-    height: 100px;
-    align-items: center;
-    position: absolute;
-    /* position: static; */
-    bottom: -500px;
-    margin: 0px;
-    padding-right: 110px;
-    z-index: 5;
-    /* margin-top: 60px; */
+
+  .left input {
+    width: 40px;
+    height: 40px;
   }
 
   .step-two-body > .cards {
@@ -106,19 +125,40 @@
     padding-bottom: 20px;
     flex-wrap: wrap;
     justify-content: center;
+    margin-top: 30px;
   }
   .step-two-body > .cards > .card {
+    padding-top: 0px;
     width: 90%;
-    height: 150px;
-    margin: 0 auto;
+    height: 80px;
+    margin: 7px auto 0;
+    display: flex;
+    align-items: center;
+  }
+  .step-two-body > .cards > .card > .plan-div {
+    margin-left: 20px;
+    margin-top: -15px;
   }
   .step-two-body .card h4 {
     margin-top: 20px;
+  }
+  .plan-switch {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .each-body > .step-three-container {
+    width: 90%;
+  }
+
+  .attribution {
+    display: none;
   }
 }
 @media (max-width: 450px) {
   .project-body {
     width: 100%;
+    height: auto;
   }
   .side-start > .background-art-work {
     width: 100%;
@@ -131,15 +171,23 @@
   .side-start > .content-overlay {
     top: 15px;
   }
-  .project-body .each-body {
+  .project-body > .whole-container {
+    margin-top: -198px;
+    height: 800px;
+  }
+  .project-body > .whole-container > .whole {
+    height: 580px;
+    overflow-y: hidden;
+  }
+
+  /* .project-body .each-body {
     top: 115px;
-    /* top: -500px; */
     width: 350px;
     margin: 0px;
     padding-left: 10px;
-
-    /* padding: 0; */
-  }
+    
+   
+  } */
   .step-one-body div,
   .each-body h1,
   .each-body h5 {
@@ -157,19 +205,22 @@
   .step-one-body div > input {
     width: 95%;
   }
+  .step-four-container {
+    margin-top: 50px;
+  }
   .btn-container {
     width: 100%;
-    top: 650px;
-    margin: 0px;
+    /* top: 650px; */
+    /* margin: 0px;
     padding-right: 50px;
-    padding-bottom: 20px;
+    padding-bottom: 20px; */
     /* margin-top: 60px; */
   }
 }
 @media (max-width: 360px) {
   .project-body .each-body {
     width: 300px;
-    height: 570px;
+    height: 520px;
 
     top: 99px;
   }
