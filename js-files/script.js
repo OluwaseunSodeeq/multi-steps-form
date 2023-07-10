@@ -162,8 +162,8 @@ const selectedPlanBtns = function () {
   myplan.selectedBtn00 = picked;
 
   activatedBtn = picked.dataset.val;
-  console.log(activatedBtn);
-  console.log(typeof activatedBtn);
+  // console.log(activatedBtn);
+  // console.log(typeof activatedBtn);
   periodBtn(activatedBtn);
 
   // return dataValue;
@@ -208,7 +208,7 @@ const gotoNextPage = function () {
     //if any of the input is empty
     const filterarr = allInputInStep1.filter((each) => each.value === "");
     filterarr.forEach((each) => {
-      console.log("yes");
+      // console.log("yes");
 
       each.classList.add("error");
     });
@@ -217,7 +217,7 @@ const gotoNextPage = function () {
     const last10Char = allInputInStep1[1].value.slice(-10);
     if (allInputInStep1[1].value === "" || last10Char !== "@gmail.com")
       allInputInStep1[1].classList.add("error");
-    console.log(last10Char);
+    // console.log(last10Char);
 
     //phone number condition
     const num = allInputInStep1[2].value;
@@ -227,7 +227,7 @@ const gotoNextPage = function () {
     const anyisEmpty = allInputInStep1.some(
       (each) => each.value === "" || each.value === 0
     );
-    console.log(anyisEmpty, allInputInStep1, num, num.length, notANum);
+    // console.log(anyisEmpty, allInputInStep1, num, num.length, notANum);
 
     //onfocus function
     allInputInStep1.forEach((each) => {
@@ -235,7 +235,7 @@ const gotoNextPage = function () {
         if (each.value === "") {
           each.classList.remove("error");
 
-          console.log("Please enter something in the input");
+          // console.log("Please enter something in the input");
         }
       });
     });
@@ -245,31 +245,31 @@ const gotoNextPage = function () {
     currentPage++;
     prevBtn.classList.remove("btnOpacity");
   }
-  console.log("I am three AA", typeof currentPage);
+  // console.log("I am three AA", typeof currentPage);
 
   // activateIndicator(currentPage);
   // directionFunction(currentPage);
   let sumArr = [];
 
-  console.log("next", currentPage);
+  // console.log("next", currentPage);
   if (currentPage === 3) {
     const planDefaultOpt = document.querySelector(".plan0");
     const planDefaultBtn = document.querySelector(".o1");
-    console.log(planDefaultOpt);
-    console.log(planDefaultBtn);
+    // console.log(planDefaultOpt);
+    // console.log(planDefaultBtn);
 
     const btnPl = myplan.selectedBtn00 || planDefaultBtn;
     const optPl = myplan.selectedOption || planDefaultOpt;
-    console.log(btnPl);
-    console.log(optPl);
+    // console.log(btnPl);
+    // console.log(optPl);
 
-    console.log("I am three", typeof currentPage);
+    // console.log("I am three", typeof currentPage);
     // const markedCheckbox = stepThreeContainer.querySelectorAll(
     //   'input[type="checkbox"]:checked'
     // );
 
-    console.log(markedCheckbox);
-    console.log(myplan, myplan.selectedOption);
+    // console.log(markedCheckbox);
+    // console.log(myplan, myplan.selectedOption);
     // if (markedCheckbox === []) {
     //   currentPage - 1;
     //   return;
@@ -279,7 +279,7 @@ const gotoNextPage = function () {
     const firstLineAmtText = optPl.querySelector("p").textContent;
 
     const timeText = btnPl.textContent;
-    console.log(firstLineText, firstLineAmtText.slice(1, -3), timeText);
+    // console.log(firstLineText, firstLineAmtText.slice(1, -3), timeText);
     stepFourContainer.innerHTML = "";
     sumArr.push(firstLineAmtText.slice(1, -3));
     let html = `
@@ -302,16 +302,16 @@ const gotoNextPage = function () {
       const boldText = itsparent.querySelector(".bold").textContent;
       const lightText = itsparent.querySelector(".light").textContent;
       const amountText = itsparent.querySelector(".right").textContent;
-      console.log(itsparent, boldText, lightText, amountText);
+      // console.log(itsparent, boldText, lightText, amountText);
 
       sumArr.push(amountText.slice(2, -3));
-      console.log(
-        amountText,
-        amountText.slice(2, -3),
-        amountText.slice(-3),
-        boldText,
-        sumArr
-      );
+      // console.log(
+      //   amountText,
+      //   amountText.slice(2, -3),
+      //   amountText.slice(-3),
+      //   boldText,
+      //   sumArr
+      // );
 
       html += `
         <div class="second-lines">
@@ -331,7 +331,7 @@ const gotoNextPage = function () {
     totalConP = totalCon.querySelector("p").textContent = `$${sumOfAll}${
       activatedBtn === "2" ? "/yr" : "/mo"
     }`;
-    console.log(totalConP, sumOfAll);
+    // console.log(totalConP, sumOfAll);
 
     stepFourContainer.insertAdjacentHTML("afterbegin", html);
     // if (!markedCheckbox) return;
@@ -340,6 +340,7 @@ const gotoNextPage = function () {
       currentPage = 1;
       nextBtn.textContent = "Next Step";
       directionFunction();
+      activateIndicator(currentPage);
     });
   }
 

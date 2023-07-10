@@ -191,6 +191,15 @@ body {
 .btn-container .next {
   margin-right: 10px;
 }
+.btn-container .prev {
+  background-color: #fff;
+  color: hsl(0, 7%, 81%);
+  border: none;
+  font-weight: 700;
+}
+.btn-container .prev:hover {
+  transform: scaleY(1.5);
+}
 .btn-hidden {
   opacity: 0;
 }
@@ -253,6 +262,7 @@ body {
   gap: 30px;
   margin-top: 50px;
   border-radius: 8px;
+  cursor: pointer;
 }
 .plan-switch > .switch {
   width: 60px;
@@ -352,7 +362,8 @@ body {
 .step-four-container {
   background-color: rgb(205, 247, 233);
   border-radius: 10px;
-  /* height: auto; */
+  margin-top: 20px;
+  border: 1px solid hsl(0, 7%, 81%);
 }
 .first-line {
   border: none;
@@ -374,7 +385,6 @@ body {
   font-size: 20px;
   font-weight: 500;
   padding: 20px;
-  /* margin-top: 5px; */
 }
 .second-lines > .add-on-picked,
 .total {
@@ -433,9 +443,6 @@ body {
   display: none;
 }
 .error {
-  /* border: 2px solid #000;*/
-  /* outline: #000;
-  border-color: #000; */
   border: 2px solid red;
 }
 .period {
