@@ -128,10 +128,16 @@ let totalConP = (totalCon.querySelector("p").textContent = `$0`);
 //Plans options
 let myplan = {};
 const selectedOption = function () {
+  const allP = Array.from(document.querySelectorAll(".p1"));
+  allP.forEach((each) => each.classList.remove("contrastP"));
   const picked = this;
+  const contrastP = picked.querySelector(".p1");
+  // console.log(allP);
+  // console.log(picked);
+  // console.log(contrastP);
   cardsNodelist.forEach((each) => each.classList.remove("selected-plan0"));
+  contrastP.classList.add("contrastP");
   picked.classList.add("selected-plan0");
-
   myplan.selectedOption = picked;
   // console.log(myplan);
 };
@@ -155,13 +161,21 @@ periodBtn(activatedBtn);
 
 const switchContainer = step2MainContainer.querySelector(".switch");
 const swicharr = switchContainer.querySelectorAll("span");
-const selectedPlanBtns = function () {
-  const picked = this;
-  swicharr.forEach((each) => each.classList.remove("selectedplanBtns"));
-  picked.classList.add("selectedplanBtns");
-  myplan.selectedBtn00 = picked;
+const selectedPlanBtns = function (e) {
+  const clicked = e.target.closest("span");
+  console.log(clicked);
 
-  activatedBtn = picked.dataset.val;
+  // const picked = this;
+  if (!clicked) return;
+  swicharr.forEach((each) => each.classList.remove("selectedplanBtns"));
+  //   picked.classList.add("selectedplanBtns");
+  //   myplan.selectedBtn00 = picked;
+  // activatedBtn = picked.dataset.val;
+
+  clicked.classList.add("selectedplanBtns");
+  myplan.selectedBtn00 = clicked;
+
+  activatedBtn = clicked.dataset.val;
   // console.log(activatedBtn);
   // console.log(typeof activatedBtn);
   periodBtn(activatedBtn);
@@ -185,18 +199,16 @@ let planAmountArray = [];
 const directionFunction = function (index = 1) {
   //   const eachBodyWidth = allSlides[0].getBoundingClientRect().width;
   Array.from(allSlides).forEach((each, i) => {
-    each.style.transform = `translateX(${100 * (i - index)}%)`;
+    each.style.marginLeft = `translateX(${100 * (i - index)}%)`;
+    // each.style.transform = `translateX(${100 * (i - index)}%)`;
   });
   // if
 };
+// directionFunction(0);
 directionFunction(0);
 
 //Next Function
 const gotoNextPage = function () {
-  const checkboxNode = stepThreeContainer.querySelectorAll(
-    'input[type="checkbox"]:checked'
-  );
-  const markedCheckbox = Array.from(checkboxNode);
   if (currentPage !== lastpage) {
     //all input in step one
     const allInputInStep1NodeLst = document.querySelectorAll(
@@ -212,12 +224,20 @@ const gotoNextPage = function () {
 
       each.classList.add("error");
     });
+    //fullname
+    const nameVal = allInputInStep1[0].value;
+    const text = nameVal.replaceAll(" ", "");
+
+    const regExp = /[^a-zA-Z]/g;
+    const textCheck = text.match(regExp);
+
+    if (allInputInStep1[0].value === "" || textCheck)
+      allInputInStep1[0].classList.add("error");
 
     //email condition
     const last10Char = allInputInStep1[1].value.slice(-10);
     if (allInputInStep1[1].value === "" || last10Char !== "@gmail.com")
       allInputInStep1[1].classList.add("error");
-    // console.log(last10Char);
 
     //phone number condition
     const num = allInputInStep1[2].value;
@@ -227,7 +247,7 @@ const gotoNextPage = function () {
     const anyisEmpty = allInputInStep1.some(
       (each) => each.value === "" || each.value === 0
     );
-    // console.log(anyisEmpty, allInputInStep1, num, num.length, notANum);
+    console.log(anyisEmpty, allInputInStep1, num, num.length, notANum);
 
     //onfocus function
     allInputInStep1.forEach((each) => {
@@ -240,7 +260,14 @@ const gotoNextPage = function () {
       });
     });
 
-    if (num.length < 11 || num.length > 15 || anyisEmpty || notANum) return;
+    // if (
+    //   num.length < 11 ||
+    //   num.length > 15 ||
+    //   anyisEmpty ||
+    //   notANum ||
+    //   textCheck
+    // )
+    // return;
     allInputInStep1.forEach((each) => each.classList.remove("error"));
     currentPage++;
     prevBtn.classList.remove("btnOpacity");
@@ -297,6 +324,10 @@ const gotoNextPage = function () {
         </div>
     </div>
     `;
+    const checkboxNode = stepThreeContainer.querySelectorAll(
+      'input[type="checkbox"]:checked'
+    );
+    const markedCheckbox = Array.from(checkboxNode);
     for (const box of markedCheckbox) {
       const itsparent = box.closest("label");
       const boldText = itsparent.querySelector(".bold").textContent;
@@ -328,6 +359,10 @@ const gotoNextPage = function () {
         `;
     }
     const sumOfAll = sumArr.reduce((cur, each) => cur + Number(each), 0);
+    const totalDiv = totalCon.querySelector(".total");
+    totalDiv.textContent = `total Per (${
+      activatedBtn === "2" ? "Year" : "Month"
+    })`;
     totalConP = totalCon.querySelector("p").textContent = `$${sumOfAll}${
       activatedBtn === "2" ? "/yr" : "/mo"
     }`;

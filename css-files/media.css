@@ -1,4 +1,7 @@
 @media (max-width: 850px) {
+  body {
+    height: auto;
+  }
   .project-body {
     width: 100%;
     height: 100vh;
@@ -81,7 +84,7 @@
     width: 100%;
     height: 100px;
     padding-top: 25px;
-    background-color: #fff;
+    background-color: rgb(205, 247, 233);
     margin-top: 50px;
   }
   .whole-container > .whole > .each-body {
@@ -89,9 +92,11 @@
     width: 100%;
     top: 0px;
     border-radius: 10px;
-    padding: 40px 0px 20px;
+    padding: 40px auto 20px;
+    /* padding-bottom: 20px; */
     z-index: 5;
     background-color: #fff;
+    margin: 0 auto;
   }
 
   .step-one-body div,
@@ -101,7 +106,11 @@
     margin: 0 auto;
   }
   .step-one-body {
-    margin-bottom: 30px;
+    width: 100%;
+    margin: 0 auto;
+
+    /* width: 100%;
+    margin: 30px auto 0px; */
   }
   .step-one-body div {
     margin-top: 30px;
@@ -180,20 +189,17 @@
     overflow-y: hidden;
   }
 
-  /* .project-body .each-body {
-    top: 115px;
-    width: 350px;
-    margin: 0px;
-    padding-left: 10px;
-    
-   
-  } */
+  .whole-container > .whole > .each-body {
+    padding: 40px 0px 20px 15px;
+  }
   .step-one-body div,
   .each-body h1,
   .each-body h5 {
-    width: 95%;
+    /* width: 95%; */
+    width: 100%;
     /* border: 1px solid #000; */
     margin: 0 auto;
+    /* padding: 0px; */
   }
   .each-body h5 {
     margin-top: 10px;
@@ -210,21 +216,23 @@
   }
   .btn-container {
     width: 100%;
-    /* top: 650px; */
-    /* margin: 0px;
-    padding-right: 50px;
-    padding-bottom: 20px; */
-    /* margin-top: 60px; */
   }
 }
 @media (max-width: 360px) {
   .project-body .each-body {
     width: 300px;
     height: 520px;
-
+    margin: 0 auto;
     top: 99px;
   }
   .btn-container {
     top: 700px;
+  }
+  .step-one-body div {
+    margin-top: 25px;
+  }
+  .whole-container > .whole > .each-body {
+    width: 100%;
+    padding: 40px 0px 20px 10px;
   }
 }
