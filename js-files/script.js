@@ -1,7 +1,7 @@
 const slidesContainer = document.querySelector(".whole");
 const allSlides = slidesContainer.querySelectorAll(".each-body");
 const allIndicators = document.querySelectorAll(".activeBtn");
-const prevBtn = document.querySelector(".prev");
+let prevBtn = document.querySelector(".prev");
 let nextBtn = document.querySelector(".next");
 let ConfirmBtn = document.querySelector(".next").textContent;
 const lastpage = allSlides.length;
@@ -9,6 +9,10 @@ let activatedBtn = "1";
 let currentPage = 0;
 const body = document.querySelector(".project-body");
 const bgImage = document.querySelector(".background-art-work");
+const allInputInStep1 = Array.from(
+  document.querySelectorAll(".step-one-body input")
+);
+//all input in step one
 
 //BAGROUND IMAGE
 const observer = new ResizeObserver((enteries) => {
@@ -121,28 +125,24 @@ observer.observe(body);
 const step2MainContainer = document.querySelector(".step-two-body");
 const step2Cards = step2MainContainer.querySelector(".cards");
 const cardsNodelist = step2Cards.querySelectorAll(".card");
-// console.log(cardsNodelist);
 
 const totalCon = document.querySelector(".total-line");
 let totalConP = (totalCon.querySelector("p").textContent = `$0`);
 //Plans options
 let myplan = {};
+
 const selectedOption = function () {
   const allP = Array.from(document.querySelectorAll(".p1"));
   allP.forEach((each) => each.classList.remove("contrastP"));
   const picked = this;
   const contrastP = picked.querySelector(".p1");
-  // console.log(allP);
-  // console.log(picked);
-  // console.log(contrastP);
+
   cardsNodelist.forEach((each) => each.classList.remove("selected-plan0"));
   contrastP.classList.add("contrastP");
   picked.classList.add("selected-plan0");
   myplan.selectedOption = picked;
-  // console.log(myplan);
 };
 cardsNodelist.forEach((each) => each.addEventListener("click", selectedOption));
-// const opt = selectedOption();
 
 //Plans Btns
 const periodBtn = function (chk) {
@@ -161,26 +161,16 @@ periodBtn(activatedBtn);
 
 const switchContainer = step2MainContainer.querySelector(".switch");
 const swicharr = switchContainer.querySelectorAll("span");
+
 const selectedPlanBtns = function (e) {
   const clicked = e.target.closest("span");
-  console.log(clicked);
-
-  // const picked = this;
   if (!clicked) return;
   swicharr.forEach((each) => each.classList.remove("selectedplanBtns"));
-  //   picked.classList.add("selectedplanBtns");
-  //   myplan.selectedBtn00 = picked;
-  // activatedBtn = picked.dataset.val;
 
   clicked.classList.add("selectedplanBtns");
   myplan.selectedBtn00 = clicked;
-
   activatedBtn = clicked.dataset.val;
-  // console.log(activatedBtn);
-  // console.log(typeof activatedBtn);
   periodBtn(activatedBtn);
-
-  // return dataValue;
 };
 
 swicharr.forEach((each) => each.addEventListener("click", selectedPlanBtns));
@@ -196,32 +186,44 @@ const totalContainer = step4MainContainer.querySelector(".total-line");
 let planAmountArray = [];
 
 //Slides function
+
+function carousel() {
+  // if (counter < slides.length - 1) {
+  //   nextBtn.style.display = "block";
+  // } else {
+  //   nextBtn.style.display = "none";
+  // }
+  // if (counter > 0) {
+  //   prevBtn.style.display = "block";
+  // } else {
+  //   prevBtn.style.display = "none";
+  // }
+  allSlides.forEach(function (slide) {
+    slide.style.transform = `translateX(-${currentPage * 100}%)`;
+  });
+}
 const directionFunction = function (index = 1) {
   //   const eachBodyWidth = allSlides[0].getBoundingClientRect().width;
   Array.from(allSlides).forEach((each, i) => {
-    each.style.marginLeft = `translateX(${100 * (i - index)}%)`;
     // each.style.transform = `translateX(${100 * (i - index)}%)`;
+    each.style.left = `${i * 100}%`;
   });
-  // if
 };
-// directionFunction(0);
+
 directionFunction(0);
+function focusfunc(e) {
+  const active = e.target;
+  active.classList.remove("error");
+}
+//onfocus function
+allInputInStep1.forEach((each) => each.addEventListener("focus", focusfunc));
 
 //Next Function
 const gotoNextPage = function () {
   if (currentPage !== lastpage) {
-    //all input in step one
-    const allInputInStep1NodeLst = document.querySelectorAll(
-      ".step-one-body input"
-    );
-    const allInputInStep1 = Array.from(allInputInStep1NodeLst);
-    // console.log(allInputInStep1);
-
     //if any of the input is empty
     const filterarr = allInputInStep1.filter((each) => each.value === "");
     filterarr.forEach((each) => {
-      // console.log("yes");
-
       each.classList.add("error");
     });
     //fullname
@@ -247,66 +249,35 @@ const gotoNextPage = function () {
     const anyisEmpty = allInputInStep1.some(
       (each) => each.value === "" || each.value === 0
     );
-    console.log(anyisEmpty, allInputInStep1, num, num.length, notANum);
+    // console.log(anyisEmpty, allInputInStep1, num, num.length, notANum);
 
-    //onfocus function
-    allInputInStep1.forEach((each) => {
-      each.addEventListener("focus", function () {
-        if (each.value === "") {
-          each.classList.remove("error");
-
-          // console.log("Please enter something in the input");
-        }
-      });
-    });
-
-    // if (
-    //   num.length < 11 ||
-    //   num.length > 15 ||
-    //   anyisEmpty ||
-    //   notANum ||
-    //   textCheck
-    // )
-    // return;
+    if (
+      num.length < 11 ||
+      num.length > 15 ||
+      anyisEmpty ||
+      notANum ||
+      textCheck
+    )
+      return;
     allInputInStep1.forEach((each) => each.classList.remove("error"));
     currentPage++;
+    carousel();
     prevBtn.classList.remove("btnOpacity");
   }
-  // console.log("I am three AA", typeof currentPage);
 
-  // activateIndicator(currentPage);
-  // directionFunction(currentPage);
   let sumArr = [];
 
-  // console.log("next", currentPage);
   if (currentPage === 3) {
     const planDefaultOpt = document.querySelector(".plan0");
     const planDefaultBtn = document.querySelector(".o1");
-    // console.log(planDefaultOpt);
-    // console.log(planDefaultBtn);
 
     const btnPl = myplan.selectedBtn00 || planDefaultBtn;
     const optPl = myplan.selectedOption || planDefaultOpt;
-    // console.log(btnPl);
-    // console.log(optPl);
-
-    // console.log("I am three", typeof currentPage);
-    // const markedCheckbox = stepThreeContainer.querySelectorAll(
-    //   'input[type="checkbox"]:checked'
-    // );
-
-    // console.log(markedCheckbox);
-    // console.log(myplan, myplan.selectedOption);
-    // if (markedCheckbox === []) {
-    //   currentPage - 1;
-    //   return;
-    // }
 
     const firstLineText = optPl.querySelector("h4").textContent;
     const firstLineAmtText = optPl.querySelector("p").textContent;
 
     const timeText = btnPl.textContent;
-    // console.log(firstLineText, firstLineAmtText.slice(1, -3), timeText);
     stepFourContainer.innerHTML = "";
     sumArr.push(firstLineAmtText.slice(1, -3));
     let html = `
@@ -333,16 +304,8 @@ const gotoNextPage = function () {
       const boldText = itsparent.querySelector(".bold").textContent;
       const lightText = itsparent.querySelector(".light").textContent;
       const amountText = itsparent.querySelector(".right").textContent;
-      // console.log(itsparent, boldText, lightText, amountText);
 
       sumArr.push(amountText.slice(2, -3));
-      // console.log(
-      //   amountText,
-      //   amountText.slice(2, -3),
-      //   amountText.slice(-3),
-      //   boldText,
-      //   sumArr
-      // );
 
       html += `
         <div class="second-lines">
@@ -366,15 +329,15 @@ const gotoNextPage = function () {
     totalConP = totalCon.querySelector("p").textContent = `$${sumOfAll}${
       activatedBtn === "2" ? "/yr" : "/mo"
     }`;
-    // console.log(totalConP, sumOfAll);
 
     stepFourContainer.insertAdjacentHTML("afterbegin", html);
-    // if (!markedCheckbox) return;
+
     const changeLink = document.querySelector(".change-plan");
     changeLink.addEventListener("click", () => {
       currentPage = 1;
       nextBtn.textContent = "Next Step";
-      directionFunction();
+      // directionFunction();
+      carousel();
       activateIndicator(currentPage);
     });
   }
@@ -387,6 +350,7 @@ const gotoPrevPage = function () {
   if (currentPage === 0) return;
   else {
     currentPage--;
+    carousel();
     prevBtn.classList.remove("btnOpacity");
   }
 
@@ -414,11 +378,9 @@ const activateIndicator = function (page) {
     nextBtn.textContent = "Next Step";
   }
   if (curPage > 4) {
-    console.log(nextBtn.textContent);
     const btnValuewithin = nextBtn.textContent;
     nextBtn.classList.add("btnOpacity");
     prevBtn.classList.add("btnOpacity");
-    console.log(btnValuewithin);
   }
 };
 // console.log("current page", currentPage);

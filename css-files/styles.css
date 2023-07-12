@@ -27,11 +27,6 @@ body {
   height: 100vh;
   height: auto;
   background-color: rgb(205, 247, 233);
-  /* display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column; */
-  /* text-align: center; */
 }
 .project-body {
   position: relative;
@@ -52,7 +47,6 @@ body {
   width: 300px;
   height: 95%;
   border-radius: 10px;
-  /* background-color: rgb(100, 100, 250); */
   color: #fff;
   margin-top: 1.5%;
   margin-left: 1.5%;
@@ -116,31 +110,49 @@ body {
   font-family: "Ubuntu", Fallback, sans-serif;
   padding-top: 20px;
   padding-bottom: 30px;
-  /* border: 1px solid red; */
 }
+
 .project-body > .whole-container > .whole {
   position: relative;
-  /* width: 100%; */
-  width: 500%;
+  width: 100%;
   height: 90%;
   margin: 0 auto;
-  /* border: 1px solid blue; */
   overflow-x: hidden;
-  display: flex;
+  /* display: flex; */
   gap: 10px;
   border-radius: 10px;
-  /* height: auto; */
-  /* transition: transform 250ms ease-in; */
 }
 .whole-container > .whole > .each-body {
   position: absolute;
   top: 0;
-  /* width:  100%; */
+  width: 100%;
+  height: 100%;
+  padding: 50px 50px 20px 50px;
+  transition: transform 1s;
+}
+
+/* .project-body > .whole-container > .whole {
+  position: relative;
+  width: 100%;
+  height: 90%;
+  margin: 0 auto;
+  border: 1px solid blue;
+  overflow-x: hidden;
+  display: flex;
+  gap: 10px;
+  border-radius: 10px;
+  height: auto; 
+  transition: transform 250ms ease-in;
+}
+.whole-container > .whole > .each-body {
+  position: absolute;
+  top: 0;
+  width:  100%;
   width: 20%;
   height: auto;
   padding: 50px 50px 20px 50px;
   transition: transform 1s;
-}
+} */
 .each-body h1 {
   font-size: 45px;
   color: rgb(5, 5, 78);
@@ -172,7 +184,6 @@ body {
   width: 95%;
   height: 50px;
   border-radius: 5px;
-  /* border: 2px solid #000; */
   margin-top: 5px;
   font-size: 18px;
   padding-left: 15px;
@@ -228,7 +239,6 @@ body {
 /*============= step two styles========= */
 .step-two-body > .cards {
   width: 100%;
-  /* border: 1px solid #000; */
   height: auto;
   margin-top: 50px;
   display: flex;
@@ -295,13 +305,11 @@ body {
 }
 
 /*============= step three styles========= */
-/* .each-body > .step-three-container,
-.each-body > .step-four-container, */
+
 .final-step-container {
   width: 100%;
   height: auto;
   margin: 50px auto 0px;
-  /* border: 1px solid #000; */
   padding-bottom: 20px;
   border-radius: 10px;
 }
@@ -318,8 +326,7 @@ body {
   border-radius: 10px;
   box-shadow: #9e8585;
 }
-/* .each-body > .step-three-container, */
-/* .each-body > .step-four-container, */
+
 .each-body .step-three-container .card {
   border: 1px solid rgb(5, 5, 78);
 }
@@ -371,7 +378,6 @@ body {
   border-radius: 10px;
   margin-top: 20px;
   padding-bottom: 10px;
-  /* border: 1px solid hsl(0, 7%, 81%); */
 }
 .first-line {
   border: none;
@@ -389,7 +395,6 @@ body {
 }
 .second-lines {
   height: 50px;
-  /* border: 1px solid hsl(0, 7%, 81%); */
   border-bottom: 1px solid hsl(0, 7%, 81%);
   font-size: 20px;
   font-weight: 500;
@@ -440,9 +445,7 @@ body {
   background-color: rgb(182, 221, 221);
   transition: transform 1s;
 }
-.selected-plan0 p {
-  /* color: #fff; */
-}
+
 .plan-switch > .switch > span.selectedplanBtns {
   color: #fff;
   background-color: #fff;
