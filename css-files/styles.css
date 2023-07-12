@@ -23,10 +23,6 @@
 }
 
 body {
-  /* width: 100%; */
-  /* height: 100%; */
-  /* height: 98vh;
-  width: 100%; */
   background-color: rgb(205, 247, 233);
   display: flex;
   flex-direction: column;
@@ -40,7 +36,7 @@ body {
   width: 970px;
   max-width: 1000px;
   height: 580px;
-  margin: 20px auto 0px;
+  margin: 30px auto 0px;
   display: flex;
   border-radius: 10px;
   flex-wrap: wrap;
@@ -206,7 +202,8 @@ body {
   margin-top: -35px;
   /* background-color: #000; */
 }
-.btn-container > button {
+
+.btn-container .next {
   cursor: pointer;
   width: 100px;
   height: 40px;
@@ -215,25 +212,20 @@ body {
   border-radius: 10px;
   font-size: 17px;
   padding: 0 auto;
-}
-.btn-container .next {
   margin-right: 10px;
-  /* cursor: pointer; */
 }
+
 .btn-container .prev {
+  width: 100px;
+  height: 40px;
   background-color: #fff;
   color: hsl(0, 7%, 81%);
   border: none;
+  font-size: 20px;
   font-weight: 700;
   cursor: pointer;
+  /* border: 1px solid rgb(5, 5, 78); */
 }
-.btn-container .prev:hover {
-  transform: scaleY(1.5);
-}
-
-/* .btn-hidden {
-  opacity: 0;
-} */
 
 .step-one-body {
   margin-left: 0%;

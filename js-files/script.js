@@ -1,8 +1,10 @@
 const slidesContainer = document.querySelector(".whole");
 const allSlides = slidesContainer.querySelectorAll(".each-body");
 const allIndicators = document.querySelectorAll(".activeBtn");
-let prevBtn = document.querySelector(".prev");
+const prevBtn = document.querySelector(".prev");
 let nextBtn = document.querySelector(".next");
+console.log(nextBtn, prevBtn);
+
 let ConfirmBtn = document.querySelector(".next").textContent;
 const lastpage = allSlides.length;
 let activatedBtn = "1";
