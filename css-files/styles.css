@@ -30,7 +30,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 20px;
+  padding-top: 20px 0px 0px 0px;
   /* margin: 0; */
   /* overflow: hidden; */
 }
@@ -39,7 +39,7 @@ body {
   background-color: #fff;
   width: 970px;
   max-width: 1000px;
-  height: 590px;
+  height: 580px;
   /* max-height: 650px; */
   /* height: 90%; */
   margin: 0px auto;
@@ -56,13 +56,13 @@ body {
   height: 90%;
   border-radius: 10px;
   color: #fff;
-  margin-top: 1.5%;
-  margin-left: 1.5%;
+  margin-top: 10px;
+  margin-left: 10px;
 }
 .side-start > .background-art-work {
   position: relative;
   width: 100%;
-  height: 90%;
+  height: 85%;
   z-index: 2;
 }
 .side-start > .background-art-work svg {
@@ -127,7 +127,6 @@ body {
   margin: 0 auto;
   overflow-x: hidden;
   /* display: flex; */
-  gap: 10px;
   border-radius: 10px;
 }
 .whole-container > .whole > .each-body {
@@ -201,35 +200,43 @@ body {
 
 .btn-container {
   width: 100%;
+  height: 50px;
   padding: 0px 70px;
   display: flex;
   justify-content: space-between;
-  margin-top: -20px;
+  align-items: center;
+  margin-top: -35px;
+  background-color: #000;
 }
 .btn-container > button {
+  cursor: pointer;
   width: 100px;
   height: 40px;
   color: #fff;
   background: rgb(5, 5, 78);
   border-radius: 10px;
   font-size: 17px;
-  cursor: pointer;
+  padding: 0 auto;
 }
 .btn-container .next {
   margin-right: 10px;
+  /* cursor: pointer; */
 }
 .btn-container .prev {
   background-color: #fff;
   color: hsl(0, 7%, 81%);
   border: none;
   font-weight: 700;
+  cursor: pointer;
 }
 .btn-container .prev:hover {
   transform: scaleY(1.5);
 }
-.btn-hidden {
+
+/* .btn-hidden {
   opacity: 0;
-}
+} */
+
 .step-one-body {
   margin-left: 0%;
 }
