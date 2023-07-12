@@ -40,7 +40,7 @@ body {
   width: 970px;
   max-width: 1000px;
   height: 580px;
-  margin: 0px auto;
+  margin: 20px auto 0px;
   display: flex;
   border-radius: 10px;
   flex-wrap: wrap;
