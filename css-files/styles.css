@@ -34,7 +34,7 @@ body {
   width: 970px;
   max-width: 1000px;
   height: 650px;
-  margin: 70px auto 0px;
+  margin: 40px auto 0px;
   display: flex;
   border-radius: 10px;
   flex-wrap: wrap;
@@ -254,6 +254,7 @@ body {
   border-radius: 10px;
   padding-top: 20px;
   padding-left: 20px;
+  cursor: pointer;
 }
 .step-two-body > .cards > .card:hover {
   border: 2px solid rgb(5, 5, 78);
@@ -439,7 +440,9 @@ body {
   font-family: "Ubuntu", Fallback, sans-serif;
 }
 .btnOpacity {
+  position: relative;
   opacity: 0;
+  z-index: -1;
 }
 .selected-plan0 {
   background-color: rgb(182, 221, 221);
