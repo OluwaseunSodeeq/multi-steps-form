@@ -25,7 +25,6 @@
 body {
   /* width: 100%; */
   height: 100vh;
-  height: auto;
   background-color: rgb(205, 247, 233);
 }
 .project-body {
@@ -33,8 +32,9 @@ body {
   background-color: #fff;
   width: 970px;
   max-width: 1000px;
-  /* height: 900px; */
   height: 650px;
+  max-height: 700px;
+  /* height: 90%; */
   margin: 5px auto 0px;
   display: flex;
   border-radius: 10px;
@@ -107,7 +107,7 @@ body {
 .project-body > .whole-container {
   position: relative;
   width: 650px;
-  height: auto;
+  height: 650px;
   font-family: "Ubuntu", Fallback, sans-serif;
   padding-top: 20px;
   padding-bottom: 30px;
@@ -154,6 +154,7 @@ body {
   padding: 50px 50px 20px 50px;
   transition: transform 1s;
 } */
+
 .each-body h1 {
   font-size: 45px;
   color: rgb(5, 5, 78);
