@@ -1,11 +1,11 @@
 const slidesContainer = document.querySelector(".whole");
 const allSlides = slidesContainer.querySelectorAll(".each-body");
 const allIndicators = document.querySelectorAll(".activeBtn");
-const prevBtn = document.querySelector(".prev");
-let nextBtn = document.querySelector(".next");
-console.log(nextBtn, prevBtn);
 
-let ConfirmBtn = document.querySelector(".next").textContent;
+const btnsContainer = document.querySelector(".btn-container");
+const prevBtn = btnsContainer.querySelector(".prev");
+const nextBtn = btnsContainer.querySelector(".next");
+
 const lastpage = allSlides.length;
 let activatedBtn = "1";
 let currentPage = 0;
@@ -221,7 +221,7 @@ function focusfunc(e) {
 allInputInStep1.forEach((each) => each.addEventListener("focus", focusfunc));
 
 //Next Function
-const gotoNextPage = function () {
+const gotoNextPage = function (e) {
   if (currentPage !== lastpage) {
     //if any of the input is empty
     const filterarr = allInputInStep1.filter((each) => each.value === "");
@@ -235,6 +235,7 @@ const gotoNextPage = function () {
     const regExp = /[^a-zA-Z]/g;
     const textCheck = text.match(regExp);
 
+    //Name condition
     if (allInputInStep1[0].value === "" || textCheck)
       allInputInStep1[0].classList.add("error");
 
@@ -251,7 +252,6 @@ const gotoNextPage = function () {
     const anyisEmpty = allInputInStep1.some(
       (each) => each.value === "" || each.value === 0
     );
-    // console.log(anyisEmpty, allInputInStep1, num, num.length, notANum);
 
     if (
       num.length < 11 ||
@@ -273,13 +273,12 @@ const gotoNextPage = function () {
     const planDefaultOpt = document.querySelector(".plan0");
     const planDefaultBtn = document.querySelector(".o1");
 
-    const btnPl = myplan.selectedBtn00 || planDefaultBtn;
+    // const btnPl = myplan.selectedBtn00 || planDefaultBtn;
     const optPl = myplan.selectedOption || planDefaultOpt;
 
     const firstLineText = optPl.querySelector("h4").textContent;
     const firstLineAmtText = optPl.querySelector("p").textContent;
 
-    const timeText = btnPl.textContent;
     stepFourContainer.innerHTML = "";
     sumArr.push(firstLineAmtText.slice(1, -3));
     let html = `
@@ -304,7 +303,7 @@ const gotoNextPage = function () {
     for (const box of markedCheckbox) {
       const itsparent = box.closest("label");
       const boldText = itsparent.querySelector(".bold").textContent;
-      const lightText = itsparent.querySelector(".light").textContent;
+      // const lightText = itsparent.querySelector(".light").textContent;
       const amountText = itsparent.querySelector(".right").textContent;
 
       sumArr.push(amountText.slice(2, -3));
@@ -319,8 +318,6 @@ const gotoNextPage = function () {
                 )} <span class="suffix">${amountText.slice(-3)}</span></p>
             </div>
         </div>
-
-
         `;
     }
     const sumOfAll = sumArr.reduce((cur, each) => cur + Number(each), 0);
@@ -358,7 +355,6 @@ const gotoPrevPage = function () {
 
   activateIndicator(currentPage);
   directionFunction(currentPage);
-  console.log("prev", currentPage);
 };
 
 const activateIndicator = function (page) {
@@ -371,7 +367,8 @@ const activateIndicator = function (page) {
     each.classList.add("indicator");
   });
 
-  if (curPage == 1) {
+  // if (curPage == 1) {
+  if (curPage === 1) {
     prevBtn.classList.add("btnOpacity");
   }
   if (curPage > 3) {
@@ -385,7 +382,6 @@ const activateIndicator = function (page) {
     prevBtn.classList.add("btnOpacity");
   }
 };
-// console.log("current page", currentPage);
 
 prevBtn.addEventListener("click", gotoPrevPage);
 nextBtn.addEventListener("click", gotoNextPage);
